@@ -7,5 +7,9 @@
   <p>Type something:</p>
   <input type="text" ng-model="message">
   <p>You typed: {{ message }}</p>
+  <p> Calculation </p>
+  <input type="number" ng-model="num1">
+  <input type="number" ng-model="num2">
+  <p> sum: {{ num1 + num2 }}</p>
 </body>
 </html>
