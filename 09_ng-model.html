@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS ng-model Examples</title>
+  <!-- Load AngularJS from CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<!-- Declare our AngularJS app and connect the controller -->
+<body ng-app="myApp" ng-controller="myCtrl">
+
+  <h2>1️⃣ Text Input Example</h2>
+  <!-- ng-model binds input text to a variable called 'username' -->
+  <input type="text" ng-model="username" placeholder="Enter your name">
+  <!-- Whatever you type above is shown here instantly -->
+  <p>Hello, {{ username }}</p>
+  <hr>
+
+  <h2>2️⃣ Checkbox Example</h2>
+  <!-- ng-model binds checkbox state (true/false) to 'subscribed' -->
+  <label>
+    <input type="checkbox" ng-model="subscribed"> Subscribe to newsletter
+  </label>
+  <!-- Shows different text based on checkbox state -->
+  <p>You are {{ subscribed ? 'subscribed' : 'not subscribed' }}.</p>
+  <hr>
+
+  <h2>3️⃣ Dropdown Example</h2>
+  <!-- ng-model binds the selected option to 'selectedFruit' -->
+  <select ng-model="selectedFruit">
+    <option disabled selected value="">-- Select a fruit --</option>
+    <option>Apple</option>
+    <option>Banana</option>
+    <option>Cherry</option>
+  </select>
+  <!-- Displays the selected value -->
+  <p>You chose: {{ selectedFruit || 'Nothing yet' }}</p>
+
+  <script>
+    // Define our AngularJS app
+    var app = angular.module('myApp', []);
+
+    // Define the controller
+    app.controller('myCtrl', function($scope) {
+      // You can set default values here if you want
+      $scope.username = '';       // text input starts empty
+      $scope.subscribed = false;  // checkbox starts unchecked
+      $scope.selectedFruit = '';  // dropdown starts with no choice
+    });
+  </script>
+
+</body>
+</html>
