@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS Greet Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+
+  <h2>AngularJS Greeting Example</h2>
+
+  <!-- Input box bound to 'userName' -->
+  <input type="text" ng-model="userName" placeholder="Enter your name">
+
+  <!-- Button calls the greet() function on click -->
+  <button ng-click="greet()">Say Hi</button>
+
+  <!-- The greeting message appears here -->
+  <p>{{ greeting }}</p>
+
+  <script>
+    // Define our AngularJS app
+    var app = angular.module('myApp', []);
+
+    // Define controller
+    app.controller('myCtrl', function($scope) {
+      // Set initial values (good practice)
+      $scope.userName = '';
+      $scope.greeting = '';
+
+      // Define function to create greeting
+      $scope.greet = function() {
+        $scope.greeting = 'Hello, ' + $scope.userName + '!';
+      };
+    });
+  </script>
+
+</body>
+</html>
